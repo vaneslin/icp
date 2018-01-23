@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bootstrap and CSS -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/Preinjection.css">
+
+    <!-- 改动部分，此处引用bootstarp.js和jquery -->
+    <script src="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 改动部分结束 -->
+
+
+</head>
+<body>
+
+<div class="flex-container">
+
+
+    <!-- Title -->
+    <header>
+        <img class="img" src="img/NHS_Logo.png">
+        <h1>Individual Care Pathway</h1>
+    </header>
+    <!-- Navigation -->
+
+    <!--
+    改动部分
+    修改成下面这样，然后把源代码的a元素里的href复制过来。
+    另外css里面需要把部分＃topbar改为＃navibar，
+    再加个.navbar-default和.navbar-toggle，里面的height和back－color属性可以调整，详情见css文件
+     -->
+    <nav id="topbar" class="navbar navbar-default" role="navigation">
+        <button class="navbar-toggle collapsed" style="margin-right:30px" type="button" data-toggle="collapse" data-target="#navibar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navibar">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="AddPatient.html">
+                        <button>Add Patient</button>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="＃">
+                        <button>ICP Board</button>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Instruction.html">
+                        <button>Instruction</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="Cover.html">
+                        <button class="logOut">Log Out</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 改动部分结束 -->
+
+
+
+    <div id="fff"></div>
+    <!-- Navigation of ICP form -->
+
+    <!-- 改动部分,这里加了个id，在页面对应css里把所有的.nav改为leftnav -->
+    <nav class="nav" id="leftnav">
+        <!-- 改动部分结束 -->
+
+
+        <ul>
+            <h2>ICP Form</h2>
+            <li><a href="Demographics.html">Demographics</a></li>
+            <li><a href="PreAssement_new.html">Pre Assessment</a></li>
+            <li><a href="#">Pre Injection</a></li>
+            <li><a href="rangeOfMovement(U).html">Range of Movement (U)</a></li>
+            <li><a href="rangeOfMovementL.html">Range of Movement (L)</a></li>
+            <li><a href="Treatmentplan.html">Treatment Plan</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Form -->
+    <article class="article">
+        <div style="font-size: x-large; text-align: center; margin-left: 80px;">
+            Pre-Injection
+            <button class="edit">Edit</button>
+        </div>
+        <div style="font-size: x-large; text-align: center; margin-right:150px;">
+            ID: xxxxxxxxxxx
+        </div>
+        <form action="Form/form">
+            <div class="row">
+                <div class="col-md-5  divform">
+                    <p>
+                        Date of Attendance:
+                        <input class="date" type="date" size="3" draggable="true" name="DateA">
+                    </p>
+                    <p>
+                        Injection Date:
+                        <input class="date" type="date" size="3" name="DateI">
+                    </p>
+                    <p>
+                        Assesment completed by: <input type="text" size="10" name="assessment">
+                    </p>
+                </div>
+                <div class="col-md-5 divform">
+                    <p>
+                        Attending clinicians: <input type="text" size="20" name="attendingCli">
+                    </p>
+                    <p>
+                        Local team members: <input type="text" size="20" name="localMembers">
+                    </p>
+                    <p>
+                        Attending family/carers: <input type="text" size="20" name="attendingFam">
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 divform">
+                    <p>
+                        Progress since last review:
+                    </p>
+                    <textarea class="largebox" type="text" name="progress"></textarea>
+
+                </div>
+                <div class="col-md-5 divform">
+                    <p>
+                        General health:
+                    </p>
+                    <textarea class="largebox" type="text" name="health"></textarea>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 divform">
+                    <p>
+                        Medication - note any allergies on page 1**:
+                    </p>
+                    <textarea class="mediumbox" type="text" name="Medication"></textarea>
+                    <p>
+                        Last hip X-ray (date and report of current hip status - green/amber/red):
+                    </p>
+                    <textarea class="mediumbox" type="text" name="hipX"></textarea>
+
+                </div>
+                <div class="col-md-5 divform">
+                    <p>
+                        Orthotics:
+                    </p>
+                    <textarea class="largebox" type="text" name="orthotics"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 divform">
+                    <p>
+                        Equipment:
+                    </p>
+                    <textarea class="largebox" type="text" name="equipment"></textarea>
+                </div>
+                <div class="col-md-5 divform">
+                    <p>
+                        Examination (Posture, Tone, Selective Movement, Power, Gait):
+                    </p>
+                    <textarea class="largebox" type="text" name="examination"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 divform">
+                    <table id="PatientList" border="1">
+                        <thead>
+                        <th>ICF DOMAIN</th>
+                        <th>COPM GOAL</th>
+                        <th>PERFORMANCE (0-10)</th>
+                        <th>SATISFACATION (0-10)</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="text" name="domain1"></td>
+                            <td><input type="text" name="goal1"></td>
+                            <td><input type="text" name="performance1"></td>
+                            <td><input type="text" name="satisfaction1"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="domain2"></td>
+                            <td><input type="text" name="goal2"></td>
+                            <td><input type="text" name="performance2"></td>
+                            <td><input type="text" name="satisfaction2"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="domain3"></td>
+                            <td><input type="text" name="goal3"></td>
+                            <td><input type="text" name="performance3"></td>
+                            <td><input type="text" name="satisfaction3"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 divform">
+                    <p>
+                        Summary of Standardised assessments:
+                    </p>
+                    <table id="PatientList" border="1">
+                        <thead>
+                        <th></th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>QFM (y/n)</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>GMFM (scores)</td>
+                            <td contenteditable="true"><input type="text" size="4" name="A"></td>
+                            <td contenteditable="true"><input type="text" size="4" name="B"></td>
+                            <td contenteditable="true"><input type="text" size="4" name="C"></td>
+                            <td contenteditable="true"><input type="text" size="4" name="D"></td>
+                            <td contenteditable="true"><input type="text" size="4" name="E"></td>
+                            <td contenteditable="true"><input type="text" size="2" name="QFM"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-md-5 divform">
+                            <p>
+                                AHA:
+                            </p>
+                            <textarea class="largebox" type="text" name="AHA"></textarea>
+                        </div>
+                        <div class="col-md-5 divform">
+                            <p>
+                                Other:
+                            </p>
+                            <textarea class="largebox" type="text" name="otherS"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 divform">
+                            TUG: <input type="text" size="10" name="TUG"> secs
+                        </div>
+                        <div class="col-md-5 divform">
+                            1MFWT: <input type="text" size="10" name="1MFWT"> m
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 divform">
+                    <p>
+                        Summary:
+                    </p>
+                    <textarea class="largebox" type="text" name="summary"></textarea>
+                </div>
+                <div class="col-md-5 divform">
+                    <p>Decition to inject</p>
+                    <lable><input type="radio" name="yes_no">Yes</lable>
+                    <lable><input type="radio" name="yes_no">No</lable>
+                    <br>
+                    <lable><input type="checkbox">Complete checklist for day case</lable>
+                    <br>
+                    <lable><input type="checkbox">Preadmission letter given</lable>
+                    <br>
+                    <lable><input type="checkbox">Follow up plans on PIMS</lable>
+                    <br>
+                </div>
+            </div>
+            <div class="row text-justify">
+                <div class="col-md-2 divform">
+                    initials: <input type="text" size="10" name="initials">
+                </div>
+                <div class="col-md-2 divform">
+                    Date: <input type="date" size="10" name="date">
+                </div>
+                <div class="col-md-2 divform pull-right text-jestify" style="margin-right:120px;">
+                    <input type="submit" name="submit" value="Submit">
+                    <button>save</button>
+                </div>
+            </div>
+        </form>
+        <div>
+
+        </div>
+
+
+    </article>
+    <footer>Copyright &copy; ICP Form</footer>
+
+</div>
+
+</body>
+</html>
