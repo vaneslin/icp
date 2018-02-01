@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Medical Clerking</title>
+  <title>Conclusion of Treatment</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -226,205 +226,195 @@
         <li class="breadcrumb-item">
           <a href="index.html">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Medical Clerking</li>
+        <li class="breadcrumb-item active">Conclusion of Treatment</li>
       </ol>
 
       <div class="row">
         <div class="col-12">
-          <h1>Medical Clerking, Pre-Sedation</h1>
-          <form id="rendered-form">
-            <div class="rendered-form">
-              <br>
-              <span class="fb-date form-group field-metwithtime">
-                <label for="clinician" class="fb-date-label">
-                  Clinician:&nbsp
-                </label>
-                <input type="text" class="calendar" name="metwithtime" id="clinician">
-              </span>
-              <div class="fb-textarea form-group field-activity">
-                <br>
-                <label for="activity" class="fb-textarea-label">
-                  <b>Child's Current Health Status</b>
-                    <p><i>Please Comment on URTI/Seizures/Flu/Bladder Incontinence/LRTI/Swallowing Difficulty.</i></p>
-                </label>
-                <textarea  type="textarea" rows = 5 class="form-control" name="activity"
-                           id="activity" placeholder="Any Changes From Pre-Assessment?"></textarea>
-              </div>
-              <span class="fb-radio-group form-group field-metwith">
-                <label for= "metwith-0" class="fb-radio-group-label">
-                  Met?&nbsp&nbsp
-                </label>
-                <span class="radio-group">
-                  <span class="radio-inline">
-                    <input name="metwith" id="metwith-0" value="option-1" type="radio" checked="checked">
-                    <label for="metwith-0">
-                      Met
-                    </label>
-                  </span>
-                  <span class="radio-inline">
-                    <input name="metwith" id="metwith-1" value="option-2" type="radio">
-                    <label for="metwith-1">
-                      Not Met</label>
-                  </span>
-                  <span class="radio-inline">
-                    <input name="metwith" id="metwith-2" type="radio">
-                    <label for="metwith-2">
-                      N/A
-                    </label>
-                  </span>
-                </span>
-              </span>
-              <span class="fb-date form-group field-metwithtime">
-                <label for="metwithtime" class="fb-date-label">
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Time
-                </label>
-                <input type="date" placeholder="12:00" class="calendar" name="metwithtime" id="metwithtime">
-              </span>
-                <hr>
-                <div class="fb-textarea form-group field-activity">
-                    <label for="activity2" class="fb-textarea-label">
-                        Record Medication Changes Since Pre-Injection Assessment
-                    </label>
-                    <textarea  type="textarea" rows = 5 class="form-control" name="activity2" id="activity2"></textarea>
-                </div>
-                <div class="fb-textarea form-group field-activity">
-                    <label for="activity3" class="fb-textarea-label">
-                        Respiratory Examination Details
-                    </label>
-                    <textarea  type="textarea" rows = 5 class="form-control" name="activity3" id="activity3"></textarea>
-                </div>
-                <span class="fb-radio-group form-group field-metwith">
-                <span class="radio-group">
-                  <span class="radio-inline">
-                    <input name="metwith1" value="option-1" type="radio" checked="checked">
-                    <label for="metwith-0">
-                      Normal
-                    </label>
-                  </span>
-                 <span class="radio-inline">
-                    <input name="metwith1" value="option-2" type="radio">
-                    <label for="metwith-1">
-                      Abnormal</label>
-                  </span>
-                    <span class="radio-inline">
-                    <input name="metwith1" value="option-3" type="radio">
-                    <label for="metwith-2">
-                      N/A</label>
-                  </span>
-                </span>
-              </span>
-                <hr>
-                <div class="container">
+          <h2>Conclusion of Treatment</h2>
+            <br>
+            <form id="rendered-form">
+                <div class="rendered-form">
+                    <!--Top Row of Text Input Data: Name, Date, Last Injection Data-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <span>
+                                    <label for="initials" class="fb-date-label">
+                                        Completed By: &nbsp
+                                    </label>
+                                    <input type="text" class="calendar" name="initials" id="initials" placeholder="Initials">
+                                </span>
+                            </div>
+                            <div class="col-4">
+                                <span>
+                                    <label for="day" class="fb-date-label">
+                                        Date:
+                                    </label>
+                                    <input type="date" class="calendar" name="   tials" id="day" placeholder="DD/MM/YYYY">
+                                </span>
+                            </div>
+                            <div class="col-4">
+                                <span>
+                                    <label for="timesincelastinj" class="fb-date-label">
+                                        Last Injection:
+                                    </label>
+                                    <input type="text" class="calendar" name="initials" id="timesincelastinj" placeholder="Time Since Last Injection">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!--Summary of Effectiveness of Injection -->
+                    <div class="fb-textarea form-group field-activity">
+                        <label for="injectionsummary" class="fb-textarea-label">
+                            <h6><i>Summary/Effectiveness of Injection</i></h6>
+                        </label>
+                        <textarea type="textarea" rows = 10 class="form-control" name="activity2"
+                                  placeholder="Summary of Injection's Effectiveness" id = "injectionsummary"></textarea>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <!-- Future Treatment Plan -->
+                    <div class="fb-textarea form-group field-activity">
+                        <label for="futuretreatmentplan" class="fb-textarea-label">
+                            <h6><i>Future Treatment Plan</i></h6>
+                        </label>
+                        <textarea type="textarea" rows = 10 class="form-control" name="activity2"
+                                  id = "futuretreatmentplan" placeholder="Details of Future Treatment Plan"></textarea>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <!-- Reinjection Section -->
+                    <fieldset class="form-group">
+                        <span class="radio-group">
+                            <label for= "reinjection" class="fb-radio-group-label">
+                                               <h4>Reinjection &nbsp&nbsp</h4>
+                                            </label>
+                            <span class="radio-inline">
+                                <input name="reinj1" value="option-1" type="radio" checked="checked" id="reinjection">
+                                <label>Yes</label>
+                            </span>
+                            <span class="radio-inline">
+                                <input name="reinj1" value="option-2" type="radio" checked="checked">
+                                <label>No</label>
+                            </span>
+                        </span>
+                    </fieldset>
+                    <br>
+                    <!-- Reinjection: YES -->
                     <div class="row">
-                        <div class="col-6">
-                            <span class="fb-radio-group form-group field-metwith">
-                                <label for= "metwith-0" class="fb-radio-group-label">
-                                    Fit for Sedation?&nbsp&nbsp
+                        <div class="col-4">
+                            <h6><i>&nbspIf Reinjection: Yes</i></h6>
+                        </div>
+                        <div class="col-4">
+                            <span>
+                                <label for="timeframe" class="fb-date-label">
+                                    Timeframe
                                 </label>
+                                <input type="text" class="calendar" name="initials" id="timeframe">
+                            </span>
+                        </div>
+                        <div class="col-4">
+                            <fieldset class="form-group">
                                 <span class="radio-group">
+                                    <label for= "admininformed" class="fb-radio-group-label">
+                                        Admin Informed
+                                    </label>
                                     <span class="radio-inline">
-                                        <input name="metwith2" value="option-1" type="radio" checked="checked">
-                                        <label for="metwith-0">
-                                            Yes
-                                        </label>
+                                        <input name="admin1" value="option-1" type="radio" checked="checked" id="admininformed">
+                                        <label>Yes</label>
                                     </span>
                                     <span class="radio-inline">
-                                        <input name="metwith2" value="option-2" type="radio">
-                                        <label for="metwith-1">
-                                            No</label>
+                                        <input name="admin1" value="option-2" type="radio">
+                                        <label>No</label>
                                     </span>
                                 </span>
-                            </span>
-                            <br><br>
-                            <br>
-                            <label for="numAmetop">Number of Ametop&reg; tubes used</label>
-                            <input type="text" id="numAmetop" name="numAmetop">
+                            </fieldset>
                         </div>
-                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="fb-textarea form-group field-activity">
+                                <textarea type="textarea" rows = 10 class="form-control" name="activity2"
+                                          placeholder="Reason for Reinjection" id = "ReinjectionY"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <br>
+                    <!-- Reinjection: NO -->
+                    <div class="row">
                         <div class="col-6">
-                            <div class="fb-date form-group field-metwithtime">
-                                <label for="metwithtime" class="fb-date-label">
-                                     Time For Oral Sedation
-                                </label>
-                                <input type="date" placeholder="12:00" class="calendar" name="metwithtime">
+                            <label><h6><i>&nbspIf Reinjection: No</i></h6></label>
+                            <div class="fb-textarea form-group field-activity">
+                                <textarea type="textarea" rows = 10 class="form-control" name="activity2"
+                                          placeholder="Reason Reinjection Not Indicated"></textarea>
                             </div>
-                            <br>
-                            <div class="fb-date form-group field-metwithtime">
-                                <label for="metwithtime" class="fb-date-label">
-                                    Time Applied
-                                </label>
-                                <input type="date" placeholder="12:00" class="calendar" name="metwithtime">
+                        </div>
+                        <div class="col-6">
+                            <label><h6><i>Onward Referral Plan</i></h6></label>
+                            <div class="fb-textarea form-group field-activity">
+                                <textarea type="textarea" rows = 10 class="form-control" name="activity2"></textarea>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="fb-textarea form-group field-activity">
-                        <label for="cancellation" class="fb-textarea-label">
-                            If Applicable, State Reasons for Cancellation
-                        </label>
-                        <textarea type="textarea" rows = 5 class="form-control" name="activity2" id="cancellation"></textarea>
-                    </div>
-                    <div class="fb-textarea form-group field-activity">
-                        <label for="followup" class="fb-textarea-label">
-                            Outline Follow Up Arrangements Below
-                        </label>
-                        <textarea  type="textarea" rows = 5 class="form-control" name="activity2" id="followup"></textarea>
+                    <hr>
+                    <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-1">
+                            <a class="btn btn-success" href="index.html"> Submit </a>
+                        </div>
+                        <div class="col-1">
+                            <a class="btn btn-secondary" href="index.html"> Save </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-              <div class="container">
-                  <div class="row">
-                      <div class="col-1">
-                          <a class="btn btn-success" href="index.html"> Submit </a>
-                      </div>
-                      <div class="col-1">
-                          <a class="btn btn-secondary" href="index.html"> Save </a>
-                      </div>
+            </form>
+        </div>
+      </div>
+    </div>
+      <!-- /.container-fluid-->
+      <!-- /.content-wrapper-->
+      <footer class="sticky-footer">
+          <div class="container">
+              <div class="text-center">
+                  <small>Copyright © Your Website 2018</small>
+              </div>
+          </div>
+      </footer>
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+          <i class="fa fa-angle-up"></i>
+      </a>
+      <!-- Logout Modal-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                  <div class="modal-footer">
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                      <a class="btn btn-primary" href="login.html">Logout</a>
                   </div>
               </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
-        </div>
       </div>
-    </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+      <!-- Bootstrap core JavaScript-->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="js/sb-admin.min.js"></script>
   </div>
 </body>
 
