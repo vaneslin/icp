@@ -1,0 +1,18 @@
+{% extends 'form/base.html' %}
+
+{% block content %}
+    <form action = "medclerk/" method = "POST">
+        {% csrf_token %}
+        {% if questions %}
+                <ul>
+                    {% for q in questions %}
+                        <li>{{ q.question_text }}</li>
+                                <input type="text" name="clinician" id="answer{{q.id}}">
+                    {% endfor %}
+                </ul>
+                    {% else %}
+                <p>No questions are available.</p>
+        {% endif %}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
