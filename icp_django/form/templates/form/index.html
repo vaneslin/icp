@@ -1,5 +1,13 @@
 {% extends 'form/base.html' %}
 
+{% block title %}
+    Test Page
+{% endblock %}
+
+{% block breadcrumb %}
+    Test Page
+{% endblock %}
+
 {% block content %}
     <form action = "medclerk/" method = "POST">
         {% csrf_token %}
@@ -13,6 +21,7 @@
                     {% else %}
                 <p>No questions are available.</p>
         {% endif %}
+        <p>Press submit to go to /medclerkpresed form</p>
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

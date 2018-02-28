@@ -4,12 +4,12 @@ from . import views
 
 urlpatterns = [
     # ex: /polls/
-    path('', views.index, name='index'),
+    path('', views.get_patient_dashboard, name='get_patient_dashboard'),
     # ex: /polls/5/
-    path('detail/', views.detail, name='detail'),
+    path('<int:patient_id>/', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
     # ex: /polls/5/results/
-    path('<int:question_id>/results/', views.results, name='results'),
+    # path('<int:question_id>/results/', views.results, name='results'),
     # ex: /polls/5/vote/
-    path('medclerk/', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
+    # path('medclerk/', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
 
 ]

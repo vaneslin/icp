@@ -1,5 +1,5 @@
 from django import forms
-from .models import MedClerkPreSed
+from .models import *
 
 
 class JQueryUIDatepickerWidget(forms.DateInput):
@@ -13,12 +13,21 @@ class JQueryUIDatepickerWidget(forms.DateInput):
 
 
 class MedClerkPreSedForm(forms.ModelForm):
+    patient = MedClerkPreSed.patient
 
     class Meta:
         model = MedClerkPreSed
         fields = '__all__'
+        exclude = ['patient']
         widgets = {
             'met_time': JQueryUIDatepickerWidget,
             'oral_sedation_time': JQueryUIDatepickerWidget,
             'ametop_applied_time': JQueryUIDatepickerWidget,
         }
+
+
+class PatientForm(forms.ModelForm):
+
+    class Meta:
+        model = Patient
+        fields = '__all__'

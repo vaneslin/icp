@@ -8,7 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Medical Clerking</title>
+  <title>
+      {% block title %}
+      {% endblock %}
+  </title>
   <!-- Bootstrap core CSS-->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <!--<link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
@@ -226,9 +229,12 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
+          <a href="/">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Medical Clerking</li>
+        <li class="breadcrumb-item active">
+            {% block breadcrumb %}
+            {% endblock %}
+        </li>
       </ol>
 
       <div class="row">
