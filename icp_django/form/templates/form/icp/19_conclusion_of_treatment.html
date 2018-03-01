@@ -1,7 +1,7 @@
 {% extends 'form/base.html' %}
 
 {% block title %}
-    Medical Clerking Pre-Sedation
+    Conclusion of Treatment
 {% endblock %}
 
 {% block breadcrumb %}
@@ -11,12 +11,12 @@
     </a>
 </li>
 <li class="breadcrumb-item active">
-    Medical Clerking Pre-Sedation
+    Conclusion of Treatment
 </li>
 {% endblock %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" >
         {% csrf_token %}
         {% load widget_tweaks %}
 

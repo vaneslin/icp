@@ -3,7 +3,6 @@ from .forms import *
 
 
 def add_patient(request):
-    patients = Patient.objects.all()
     if request.method == "POST":
         form = PatientForm(request.POST)
         if form.is_valid():
@@ -53,3 +52,23 @@ def get_med_clerk_pre_sed(request, patient_id):
         # create new medclerk form
         form = MedClerkPreSedForm()
     return render(request, 'form/icp/11_medclerk.html', {'form': form, 'patient': pat})
+
+
+def get_conc_of_treatment(request, patient_id):
+    pat = get_object_or_404(Patient, patient_id=patient_id)
+    try:
+        conc = ConcOfTreatment.objects.get(patient=pat)
+    except Exception:
+        conc = None
+    if request.method == "POST":
+        form = ConcOfTreatmentForm(request.POST or None, instance=conc)
+        if form.is_valid():
+            concoftreat = form.save(commit=False)
+            concoftreat.patient = get_object_or_404(Patient, patient_id=patient_id)
+            concoftreat.access_date = timezone.now()
+            concoftreat.save()
+    elif conc is not None:
+        form = ConcOfTreatmentForm(None, instance=conc)
+    else:
+        form = ConcOfTreatmentForm()
+    return render(request, 'form/icp/19_conclusion_of_treatment.html', {'form': form, 'patient': pat})

@@ -26,8 +26,15 @@ class MedClerkPreSedForm(forms.ModelForm):
         }
 
 
-class PatientForm(forms.ModelForm):
+class ConcOfTreatmentForm(forms.ModelForm):
+    patient = ConcOfTreatment.patient
 
     class Meta:
-        model = Patient
+        model = ConcOfTreatment
         fields = '__all__'
+        exclude = ['patient']
+        widgets = {
+            'date': JQueryUIDatepickerWidget,
+            'last_injection': JQueryUIDatepickerWidget,
+            'timeframe': JQueryUIDatepickerWidget,
+        }

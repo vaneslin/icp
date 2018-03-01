@@ -85,6 +85,49 @@ class MedClerkPreSed(models.Model):
         return "Medical Clerking Pre-Sedation"
 
 
+class ConcOfTreatment(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, default=0)
+    access_date = timezone.now()
+    page = 19
+    completed_by = models.CharField(max_length=5, help_text="Initials")
+    date = models.DateTimeField()
+    last_injection = models.DateTimeField()
+    summary_and_effectiveness_of_injection = models.TextField(
+        help_text="Summary of Injection Results",
+        blank=True
+    )
+    future_treatment_plan = models.TextField(
+        help_text="Details of Future Treatment Plan",
+        blank=True
+    )
+    reinjection = models.CharField(
+        max_length=3,
+        choices=YES_NO_CHOICES,
+        default='no',
+        blank=True
+    )
+    if_reinjection_yes = models.TextField(
+        help_text="Reason for Re-injection",
+        blank=True
+    )
+    timeframe = models.DateTimeField()
+    admin_informed = models.CharField(
+        max_length=3,
+        choices=YES_NO_CHOICES,
+        default='no',
+        blank=True
+    )
+    if_reinjection_no = models.TextField(
+        help_text="Reason Re-injection Not Indicated",
+        blank=True
+    )
+    onward_referral_plan = models.TextField(
+        blank=True
+    )
+
+    def __str__(self):
+        return "Conclusion of Treatment"
+
 
 
 

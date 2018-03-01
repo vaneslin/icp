@@ -35,6 +35,11 @@
             </a>
         </div>
     </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
     <div class="col-6">
         <div class="list-group">
             <p class="list-group-item list-group-item-action active">
@@ -53,12 +58,14 @@
             <p class="list-group-item list-group-item-action active">
                 Part VI: Conclusion
             </p>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="{% url 'get_conc_of_treatment' patient_id %}" class="list-group-item list-group-item-action">
                 Conclusion of Treatment
             </a>
         </div>
     </div>
 </div>
+
+
 
 {% endblock %}
 
