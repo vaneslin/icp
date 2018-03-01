@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     # ex: /polls/
     path('', views.get_patient_dashboard, name='get_patient_dashboard'),
+    path('add-patient/', views.add_patient, name='add_patient'),
     # ex: /polls/5/
     path('<int:patient_id>/', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
     # ex: /polls/5/results/

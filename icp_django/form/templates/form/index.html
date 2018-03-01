@@ -1,27 +1,43 @@
 {% extends 'form/base.html' %}
 
 {% block title %}
-    Test Page
+    Patient Dashboard
 {% endblock %}
 
 {% block breadcrumb %}
-    Test Page
+    Patient Dashboard
 {% endblock %}
 
 {% block content %}
-    <form action = "medclerk/" method = "POST">
-        {% csrf_token %}
-        {% if questions %}
-                <ul>
-                    {% for q in questions %}
-                        <li>{{ q.question_text }}</li>
-                                <input type="text" name="clinician" id="answer{{q.id}}">
-                    {% endfor %}
-                </ul>
-                    {% else %}
-                <p>No questions are available.</p>
-        {% endif %}
-        <p>Press submit to go to /medclerkpresed form</p>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="row1">
+        <br>
+        <h4>Welcome, admin</h4>
+        <hr>
+        <br>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a href="/add-patient">
+                <div class="card text-white bg-primary mb-3" style="max-width: 80rem;" style="max-height: 80rem;">
+                    <div class="card-header">Start New Patient Form</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Add A New Patient</h4>
+                        <p class="card-text">Register a Patient and Start a New ICP Form</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-6">
+            <a href="/add-patient">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 80rem;" style="max-height: 80rem;">
+                <div class="card-header">Edit Existing Form</div>
+                <div class="card-body">
+                    <h4 class="card-title">Edit Existing Patient Information</h4>
+                    <p class="card-text">Change or Add Information to Existing ICP Form</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
 {% endblock %}

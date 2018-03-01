@@ -23,6 +23,10 @@ def results(request, question_id):
 
 
 def get_patient_dashboard(request):
+    return render(request, 'form/index.html')
+
+
+def add_patient(request):
     patients = Patient.objects.all()
     if request.method == "POST":
         form = PatientForm(request.POST)
