@@ -1,29 +1,5 @@
-from django.http import HttpResponse
-from django.template import loader
 from django.shortcuts import render, get_object_or_404
-from django.utils import timezone
-from .models import Question, TextAnswer, NumberAnswer
 from .forms import *
-
-
-def index(request):
-    questions = Question.objects.all()
-    template = loader.get_template('form/index.html')
-    context = {'questions': questions}
-    return render(request, 'form/index.html', context)
-
-
-def detail(request, question_id):
-    return HttpResponse("You're looking at question %s." % question_id)
-
-
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-
-def get_patient_dashboard(request):
-    return render(request, 'form/index.html')
 
 
 def add_patient(request):
@@ -36,7 +12,22 @@ def add_patient(request):
             patient.save()
     else:
         form = PatientForm()
-    return render(request, 'form/patient_dashboard.html', {'form': form, 'patients': patients})
+    return render(request, 'form/patient_add.html', {'form': form})
+
+
+def edit_patient(request):
+    patients = Patient.objects.all()
+    return render(request, 'form/patient_edit.html', {'patients': patients})
+
+
+def get_patient_information(request, patient_id):
+    pat = get_object_or_404(Patient, patient_id=patient_id)
+    return render(request, 'form/patient_information.html', {'patient': pat, 'patient_id':patient_id})
+
+
+def get_patient_dashboard(request):
+    patients = Patient.objects.all()
+    return render(request, 'form/patient_dashboard.html', {'patients':patients})
 
 
 def get_med_clerk_pre_sed(request, patient_id):
@@ -61,4 +52,4 @@ def get_med_clerk_pre_sed(request, patient_id):
     else:
         # create new medclerk form
         form = MedClerkPreSedForm()
-    return render(request, 'form/medclerk.html', {'form': form})
+    return render(request, 'form/icp/11_medclerk.html', {'form': form, 'patient': pat})

@@ -3,14 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # ex: /polls/
     path('', views.get_patient_dashboard, name='get_patient_dashboard'),
     path('add-patient/', views.add_patient, name='add_patient'),
-    # ex: /polls/5/
-    path('<int:patient_id>/', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
-    # ex: /polls/5/results/
-    # path('<int:question_id>/results/', views.results, name='results'),
-    # ex: /polls/5/vote/
-    # path('medclerk/', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
-
+    path('edit-patient/', views.edit_patient, name='edit_patient'),
+    path('<int:patient_id>/', views.get_patient_information, name='get_patient_information'),
+    path('<int:patient_id>/medical-clerking-pre-sedation', views.get_med_clerk_pre_sed, name='get_med_clerk_pre_sed'),
 ]

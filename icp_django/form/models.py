@@ -85,48 +85,6 @@ class MedClerkPreSed(models.Model):
         return "Medical Clerking Pre-Sedation"
 
 
-class Form(models.Model):
-    user_text = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.user_text
-
-
-class Page(models.Model):
-    form = models.ForeignKey(Form, on_delete=models.CASCADE)
-    page_number = models.IntegerField(default=0)
-
-    def __str__(self):
-        return str(self.page_number)
-
-
-class Question(models.Model):
-    page = models.ForeignKey(Page, on_delete=models.CASCADE, default=0)
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-
-    def __str__(self):
-        return self.question_text
-
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-
-
-class NumberAnswer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    number_input = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.number_input
-
-
-class TextAnswer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    text_input = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.text_input
-
 
 
 

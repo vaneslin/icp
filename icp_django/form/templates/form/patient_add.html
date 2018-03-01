@@ -1,15 +1,17 @@
 {% extends 'form/base.html' %}
 
 {% block title %}
-    Medical Clerking Pre-Sedation
+    Add Patient
 {% endblock %}
 
 {% block breadcrumb %}
-    Medical Clerking Pre-Sedation
+<li class="breadcrumb-item active">
+    Add Patient
+</li>
 {% endblock %}
 
 {% block content %}
-    <form method="POST" url="/medclerk">
+    <form method="POST">
         {% csrf_token %}
         {% load widget_tweaks %}
 
@@ -27,7 +29,6 @@
         {% for field in form.visible_fields %}
             <div class="form-group">
                 {{ field.label_tag }}
-
                  {% if form.is_bound %}
                     {% if field.errors %}
                         {% render_field field class="form-control is-invalid" %}
@@ -48,8 +49,9 @@
                 {% endif %}
             </div>
         {% endfor %}
-        <button type="submit">Save</button>
+        <button type="submit">Add Patient</button>
     </form>
+
 {% endblock %}
 
 

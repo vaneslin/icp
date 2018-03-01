@@ -1,60 +1,60 @@
 {% extends 'form/base.html' %}
 
 {% block title %}
-    Patient Dashboard
+Patient Dashboard
 {% endblock %}
 
 {% block breadcrumb %}
-    Add/Edit Patient Information
+<li class="breadcrumb-item active">
+    Patient Dashboard
+</li>
 {% endblock %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        {% load widget_tweaks %}
-
-        {% for hidden_field in form.hidden_fields %}
-            {{ hidden_field }}
-        {% endfor %}
-
-        {% if form.non_field_errors %}
-        <div class="alert alert-danger" role="alert">
-            {% for error in form.non_field_errors %}
-                {{ error }}
+<div class="row1">
+    <br>
+    <h4>Welcome, admin</h4>
+    <hr>
+    <br>
+</div>
+<div class="row">
+    <div class="col-5">
+        <a href="/add-patient">
+            <div class="card text-white bg-success mb-3" style="max-width: 30rem;" style="max-height: 80rem;">
+                <div class="card-header">Start New Patient Form</div>
+                <div class="card-body">
+                    <h4 class="card-title">Add A New Patient</h4>
+                    <p class="card-text">Register a Patient and Start a New ICP Form</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-5">
+        <a href="/edit-patient">
+            <div class="card text-white bg-success mb-3" style="max-width: 30rem;" style="max-height: 80rem;">
+                <div class="card-header">Edit Existing Form</div>
+                <div class="card-body">
+                    <h4 class="card-title">Edit Existing Patient Information</h4>
+                    <p class="card-text">Change or Add Information to Existing ICP Form</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<hr>
+<br>
+<div class="row">
+    <div class="col-10">
+        <div class="list-group">
+            <p class="list-group-item list-group-item-action active">
+                Current Patients
+            </p>
+            {% for p in patients %}
+            <a href="{% url 'get_patient_information' p.patient_id %}" class="list-group-item list-group-item-action">
+                {{p.patient_id}} {{p.name}}
+            </a>
             {% endfor %}
         </div>
-        {% endif %}
-        {% for field in form.visible_fields %}
-            <div class="form-group">
-                {{ field.label_tag }}
-                 {% if form.is_bound %}
-                    {% if field.errors %}
-                        {% render_field field class="form-control is-invalid" %}
-                        {% for error in field.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                             </div>
-                        {% endfor %}
-                    {% else %}
-                        {% render_field field class="form-control is-valid" %}
-                    {% endif %}
-                {% else %}
-                    {% render_field field class="form-control" %}
-                {% endif %}
-
-                {% if field.help_text %}
-                    <small class="form-text text-muted">{{ field.help_text }}</small>
-                {% endif %}
-            </div>
-        {% endfor %}
-        <button type="submit">Add Patient</button>
-    </form>
-    <ul>
-        {% for p in patients %}
-        <li><a href="{{p.patient_id}}/">{{p.name}} {{p.patient_id}}</a></li>
-        {% endfor %}
-    </ul>
-
+    </div>
+</div>
 {% endblock %}
-
-
