@@ -54,6 +54,26 @@ def get_med_clerk_pre_sed(request, patient_id):
     return render(request, 'form/icp/11_medclerk.html', {'form': form, 'patient': pat})
 
 
+def get_proc_report(request, patient_id):
+    pat = get_object_or_404(Patient, patient_id=patient_id)
+    try:
+        proc = ProcReport.objects.get(patient=pat)
+    except Exception:
+        proc = None
+    if request.method == "POST":
+        form = ProcReportForm(request.POST or None, instance=proc)
+        if form.is_valid():
+            proc = form.save(commit=False)
+            proc.patient = get_object_or_404(Patient, patient_id=patient_id)
+            proc.access_date = timezone.now()
+            proc.save()
+    elif proc is not None:
+        form = ProcReportForm(None, instance=proc)
+    else:
+        form = ProcReportForm()
+    return render(request, 'form/icp/12_procedure_report.html', {'form': form, 'patient': pat})
+
+
 def get_conc_of_treatment(request, patient_id):
     pat = get_object_or_404(Patient, patient_id=patient_id)
     try:

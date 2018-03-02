@@ -18,7 +18,7 @@ class PatientForm(forms.ModelForm):
         model = Patient
         fields = '__all__'
 
-        
+
 class MedClerkPreSedForm(forms.ModelForm):
     patient = MedClerkPreSed.patient
 
@@ -31,6 +31,34 @@ class MedClerkPreSedForm(forms.ModelForm):
             'oral_sedation_time': JQueryUIDatepickerWidget,
             'ametop_applied_time': JQueryUIDatepickerWidget,
         }
+
+
+class ProcReportForm(forms.ModelForm):
+    patient = ProcReport.patient
+
+    class Meta:
+        model = ProcReport
+        fields = '__all__'
+        exclude = ['patient']
+        widgets = {
+            'ultrasound_1': forms.RadioSelect,
+            'ultrasound_2': forms.RadioSelect,
+            'ultrasound_3': forms.RadioSelect,
+            'ultrasound_4': forms.RadioSelect,
+            'ultrasound_5': forms.RadioSelect,
+            'ultrasound_6': forms.RadioSelect,
+            'ultrasound_7': forms.RadioSelect,
+            'ultrasound_8': forms.RadioSelect,
+            'ultrasound_9': forms.RadioSelect,
+            'ultrasound_10': forms.RadioSelect,
+            'ultrasound_11': forms.RadioSelect,
+            'ultrasound_12': forms.RadioSelect,
+            'adverse_event': forms.RadioSelect,
+            'adverse_event_yes': forms.Textarea(attrs={'placeholder': 'If yes, then details of adverse event'}),
+            'sedation_effective': forms.RadioSelect,
+            'sedation_effective_no': forms.Textarea(attrs={'placeholder': 'If no, then details of ineffective sedation'}),
+        }
+
 
 
 class ConcOfTreatmentForm(forms.ModelForm):

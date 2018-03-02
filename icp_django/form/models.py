@@ -1,4 +1,3 @@
-
 import datetime
 from django.db import models
 from django.utils import timezone
@@ -7,13 +6,19 @@ from django.utils import timezone
 YES_NO_NA_CHOICES = (
         ('yes', 'Yes'),
         ('no', 'No'),
-        ('na', "n/a"),
+        ('', 'n/a'),
     )
 
 YES_NO_CHOICES = (
         ('yes', 'Yes'),
         ('no', 'No'),
     )
+
+LEFT_RIGHT_CHOICES = (
+    ('left', 'L'),
+    ('right', 'R'),
+    ('', "n/a"),
+)
 
 
 class Patient(models.Model):
@@ -35,7 +40,7 @@ class MedClerkPreSed(models.Model):
     ABNORMAL_CHOICES = (
         ('normal', 'Normal'),
         ('abnormal', 'Abnormal'),
-        ('na', "n/a"),
+        ('', "n/a"),
     )
     clinician = models.CharField(max_length=200)
     current_health_status = models.TextField(
@@ -60,7 +65,7 @@ class MedClerkPreSed(models.Model):
     normal = models.CharField(
         max_length=8,
         choices=ABNORMAL_CHOICES,
-        default='na',
+        default=None,
         blank=True
     )
     fit_for_sedation = models.CharField(
@@ -129,6 +134,212 @@ class ConcOfTreatment(models.Model):
         return "Conclusion of Treatment"
 
 
+class ProcReport(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, default=0)
+    access_date = timezone.now()
+    page = 12
+    muscle_1 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_2 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_3 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_4 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_5 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_6 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_7 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_8 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_9 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_10 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_11 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    muscle_12 = models.CharField(
+        max_length=5,
+        choices=LEFT_RIGHT_CHOICES,
+        default='',
+        blank=True
+    )
+    musc_inject_1 = models.TextField(blank=True)
+    musc_inject_2 = models.TextField(blank=True)
+    musc_inject_3 = models.TextField(blank=True)
+    musc_inject_4 = models.TextField(blank=True)
+    musc_inject_5 = models.TextField(blank=True)
+    musc_inject_6 = models.TextField(blank=True)
+    musc_inject_7 = models.TextField(blank=True)
+    musc_inject_8 = models.TextField(blank=True)
+    musc_inject_9 = models.TextField(blank=True)
+    musc_inject_10 = models.TextField(blank=True)
+    musc_inject_11 = models.TextField(blank=True)
+    musc_inject_12 = models.TextField(blank=True)
+
+    ultrasound_1 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_2 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_3 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_4 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_5 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_6 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_7 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_8 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_9 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_10 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_11 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    ultrasound_12 = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+
+    placement_1 = models.TextField(blank=True)
+    placement_2 = models.TextField(blank=True)
+    placement_3 = models.TextField(blank=True)
+    placement_4 = models.TextField(blank=True)
+    placement_5 = models.TextField(blank=True)
+    placement_6 = models.TextField(blank=True)
+    placement_7 = models.TextField(blank=True)
+    placement_8 = models.TextField(blank=True)
+    placement_9 = models.TextField(blank=True)
+    placement_10 = models.TextField(blank=True)
+    placement_11 = models.TextField(blank=True)
+    placement_12 = models.TextField(blank=True)
+
+    tolerated_1 = models.TextField(blank=True)
+    tolerated_2 = models.TextField(blank=True)
+    tolerated_3 = models.TextField(blank=True)
+    tolerated_4 = models.TextField(blank=True)
+    tolerated_5 = models.TextField(blank=True)
+    tolerated_6 = models.TextField(blank=True)
+    tolerated_7 = models.TextField(blank=True)
+    tolerated_8 = models.TextField(blank=True)
+    tolerated_9 = models.TextField(blank=True)
+    tolerated_10 = models.TextField(blank=True)
+    tolerated_11 = models.TextField(blank=True)
+    tolerated_12 = models.TextField(blank=True)
+
+    adverse_event = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    adverse_event_yes = models.TextField(blank=True)
+    sedation_effective = models.CharField(
+        max_length=3,
+        choices=YES_NO_NA_CHOICES,
+        default='',
+        blank=True
+    )
+    sedation_effective_no = models.TextField(blank=True)
+    initials = models.CharField(max_length=5)
+    date = models.DateTimeField()
+    def __str__(self):
+        return "Procedure Report"
 
 
 
